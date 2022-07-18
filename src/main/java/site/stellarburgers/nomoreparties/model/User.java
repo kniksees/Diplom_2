@@ -47,8 +47,8 @@ public class User {
     public static User getRandomUser(){
         Faker faker = new Faker();
         String name = faker.name().firstName();
-        String email = name + RandomStringUtils.randomNumeric(10) + "@yandex.ru";
-        String password = RandomStringUtils.randomAlphabetic(10);
+        String email = RandomStringUtils.randomNumeric(10) + faker.internet().emailAddress(name);
+        String password = faker.internet().password();
         return new User(email, password, name);
     }
 

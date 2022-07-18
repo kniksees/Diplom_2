@@ -12,7 +12,7 @@ import site.stellarburgers.nomoreparties.model.UserCredentials;
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.SC_ACCEPTED;
 
-public class UserClient extends BaseApiUser {
+public class UserClient extends BaseApi {
 
 
 

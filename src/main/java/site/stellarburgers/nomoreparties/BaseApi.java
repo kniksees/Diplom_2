@@ -5,7 +5,7 @@ import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-public class BaseApiUser {
+public class BaseApi {
     public static String BASE_URL = "https://stellarburgers.nomoreparties.site";
 
     public static RequestSpecification getRequestSpecification() {
