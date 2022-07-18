@@ -63,7 +63,22 @@ public class UserClient extends BaseApi {
                 .patch(BASE_URL + "/api/auth/user/");
     }
 
+    public static Response getOrderListWithAuthToken(Response response) {
+        String accessToken = response.body().jsonPath().getString("accessToken");
+        return given()
+                .spec(getRequestSpecification())
+                .header("Authorization", accessToken)
+                .when()
+                .get(BASE_URL + "/api/orders");
+    }
 
+    public static Response getOrderListWithOutAuthToken() {
+
+        return given()
+                .spec(getRequestSpecification())
+                .when()
+                .get(BASE_URL + "/api/orders");
+    }
 
 
 
