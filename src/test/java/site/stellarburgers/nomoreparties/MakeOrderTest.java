@@ -45,6 +45,7 @@ public class MakeOrderTest {
         Order order = Order.getOrder();
         Response response = makeOrderWithAuthorizationUser(responseAboutRegisterWithCorrectUniqueData, order);
         assertEquals(response.statusCode(), SC_OK);
+        assertEquals(response.statusLine(), "HTTP/1.1 " + SC_OK + " OK");
     }
 
     @Test
@@ -52,6 +53,7 @@ public class MakeOrderTest {
         Order order = Order.getOrder();
         Response response = makeOrderWithOutAuthorizationUser(order);
         assertEquals(response.statusCode(), SC_UNAUTHORIZED);
+        assertEquals(response.statusLine(), "HTTP/1.1 " + SC_UNAUTHORIZED + " Unauthorized");
     }
 
     @Test
@@ -59,6 +61,7 @@ public class MakeOrderTest {
         Order order = Order.getOrderWithBadHash();
         Response response = makeOrderWithAuthorizationUser(responseAboutRegisterWithCorrectUniqueData, order);
         assertEquals(response.statusCode(), SC_BAD_REQUEST);
+        assertEquals(response.statusLine(), "HTTP/1.1 " + SC_BAD_REQUEST + " Bad Request");
     }
 
     @Test
@@ -66,5 +69,6 @@ public class MakeOrderTest {
         Order order = Order.getOrderWithOutIngredients();
         Response response = makeOrderWithAuthorizationUser(responseAboutRegisterWithCorrectUniqueData, order);
         assertEquals(response.statusCode(), SC_BAD_REQUEST);
+        assertEquals(response.statusLine(), "HTTP/1.1 " + SC_BAD_REQUEST + " Bad Request");
     }
 }

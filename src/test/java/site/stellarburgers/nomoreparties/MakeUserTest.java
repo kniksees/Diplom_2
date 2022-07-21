@@ -36,6 +36,7 @@ public class MakeUserTest {
     public void createUniqueUserTest() {
 
         assertEquals(responseAboutRegisterWithCorrectUniqueData.statusCode(), SC_OK);
+        assertEquals(responseAboutRegisterWithCorrectUniqueData.statusLine(), "HTTP/1.1 " + SC_OK + " OK");
     }
 
     @Test
@@ -43,6 +44,7 @@ public class MakeUserTest {
         Response responseAboutRegisterWithExistingData = createUser(user);
 
         assertEquals(responseAboutRegisterWithExistingData.statusCode(), SC_FORBIDDEN);
+        assertEquals(responseAboutRegisterWithExistingData.statusLine(), "HTTP/1.1 " + SC_FORBIDDEN + " Forbidden");
     }
 
     @Test
@@ -51,5 +53,6 @@ public class MakeUserTest {
         responseAboutRegisterWithCorrectUniqueData = createUser(user);
 
         assertEquals(responseAboutRegisterWithCorrectUniqueData.statusCode(), SC_FORBIDDEN);
+        assertEquals(responseAboutRegisterWithCorrectUniqueData.statusLine(), "HTTP/1.1 " + SC_FORBIDDEN + " Forbidden");
     }
 }

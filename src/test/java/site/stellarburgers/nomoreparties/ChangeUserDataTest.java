@@ -37,6 +37,7 @@ public class ChangeUserDataTest {
         Response responseAboutChangeUserDataWithAuthorization = changeUserDataWithAuthorization(responseAboutRegisterWithCorrectUniqueData, User.getRandomUser());
 
         assertEquals(responseAboutChangeUserDataWithAuthorization.statusCode(), SC_OK);
+        assertEquals(responseAboutChangeUserDataWithAuthorization.statusLine(), "HTTP/1.1 " + SC_OK + " OK");
     }
 
     @Test
@@ -44,5 +45,7 @@ public class ChangeUserDataTest {
         Response responseAboutChangeUserDataWithOutAuthorization = changeUserDataWithOutAuthorization(User.getRandomUser());
 
         assertEquals(responseAboutChangeUserDataWithOutAuthorization.statusCode(), SC_UNAUTHORIZED);
+        assertEquals(responseAboutChangeUserDataWithOutAuthorization.statusLine(), "HTTP/1.1 " + SC_UNAUTHORIZED + " Unauthorized");
+
     }
 }

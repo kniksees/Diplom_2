@@ -37,6 +37,7 @@ public class LoginUserTest {
         Response responseAboutLoginWithCorrectData = loginUserWithCorrectData(userCredentials);
 
         assertEquals(responseAboutLoginWithCorrectData.statusCode(), SC_OK);
+        assertEquals(responseAboutLoginWithCorrectData.statusLine(), "HTTP/1.1 " + SC_OK + " OK");
     }
 
     @Test
@@ -45,5 +46,7 @@ public class LoginUserTest {
         Response responseAboutLoginWithIncorrectData = loginUserWithCorrectData(userCredentials);
 
         assertEquals(responseAboutLoginWithIncorrectData.statusCode(), SC_UNAUTHORIZED);
+        assertEquals(responseAboutLoginWithIncorrectData.statusLine(), "HTTP/1.1 " + SC_UNAUTHORIZED + " Unauthorized");
+
     }
 }

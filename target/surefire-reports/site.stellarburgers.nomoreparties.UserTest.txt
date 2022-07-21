@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: site.stellarburgers.nomoreparties.UserTest
--------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.61 s - in site.stellarburgers.nomoreparties.UserTest

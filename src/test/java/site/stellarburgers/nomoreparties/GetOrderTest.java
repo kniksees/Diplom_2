@@ -37,6 +37,7 @@ public class GetOrderTest {
         Response response = getOrderListWithAuthToken(responseAboutRegisterWithCorrectUniqueData);
 
         assertEquals(response.statusCode(), SC_OK);
+        assertEquals(response.statusLine(), "HTTP/1.1 " + SC_OK + " OK");
     }
 
     @Test
@@ -44,5 +45,6 @@ public class GetOrderTest {
         Response response = getOrderListWithOutAuthToken();
 
         assertEquals(response.statusCode(), SC_UNAUTHORIZED);
+        assertEquals(response.statusLine(), "HTTP/1.1 " + SC_UNAUTHORIZED + " Unauthorized");
     }
 }
