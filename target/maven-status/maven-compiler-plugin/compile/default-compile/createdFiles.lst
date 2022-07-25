@@ -1,0 +1,6 @@
+site\stellarburgers\nomoreparties\model\User.class
+site\stellarburgers\nomoreparties\OrderClient.class
+site\stellarburgers\nomoreparties\BaseApi.class
+site\stellarburgers\nomoreparties\model\Order.class
+site\stellarburgers\nomoreparties\UserClient.class
+site\stellarburgers\nomoreparties\model\UserCredentials.class
