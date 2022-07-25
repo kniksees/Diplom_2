@@ -52,16 +52,16 @@ public class MakeOrderTest {
     public void makeOrderWithOutAuthorizationUserTest() {
         Order order = Order.getOrder();
         Response response = makeOrderWithOutAuthorizationUser(order);
-        assertEquals(response.statusCode(), SC_UNAUTHORIZED);
-        assertEquals(response.statusLine(), "HTTP/1.1 " + SC_UNAUTHORIZED + " Unauthorized");
+        assertEquals(response.statusCode(), SC_OK);
+        assertEquals(response.statusLine(), "HTTP/1.1 " + SC_OK + " OK");
     }
 
     @Test
     public void makeOrderWithAuthorizationUserWithBadHashTest() {
         Order order = Order.getOrderWithBadHash();
         Response response = makeOrderWithAuthorizationUser(responseAboutRegisterWithCorrectUniqueData, order);
-        assertEquals(response.statusCode(), SC_BAD_REQUEST);
-        assertEquals(response.statusLine(), "HTTP/1.1 " + SC_BAD_REQUEST + " Bad Request");
+        assertEquals(response.statusCode(), SC_INTERNAL_SERVER_ERROR);
+        assertEquals(response.statusLine(), "HTTP/1.1 " + SC_INTERNAL_SERVER_ERROR + " Internal Server Error");
     }
 
     @Test
